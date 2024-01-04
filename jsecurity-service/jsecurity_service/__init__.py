@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 import jsecurity_service.router.login as main
 import logging
 
