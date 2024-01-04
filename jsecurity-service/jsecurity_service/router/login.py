@@ -11,10 +11,10 @@ ALGORITHM = 'HS256'
 
 @router.post('/login')
 async def login(request: LoginRequest):
-    username = request.username
+    email = request.email
     password = request.password
 
-    if not await authenticate_user(username, password):
+    if not await authenticate_user(email, password):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail='Incorrect username or password',
@@ -23,5 +23,5 @@ async def login(request: LoginRequest):
     return {'message': 'Login successful'}
 
 
-async def authenticate_user(username: str, password: str) -> bool:
+async def authenticate_user(email: str, password: str) -> bool:
     return True
