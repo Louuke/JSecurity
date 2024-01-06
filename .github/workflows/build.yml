@@ -36,6 +36,41 @@ jobs:
         name: jsecurity_api
         path: jsecurity-api/dist/*.whl
 
+  build_jsecurity_persistence:
+    needs: build_jsecurity_api
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout persistence-code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: 3.12
+
+    - name: Install persistence-dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install setuptools build
+        pip install -r jsecurity-persistence/requirements.txt
+
+    - name: Test persistence
+      run: |
+        cd jsecurity-persistence
+        python -W ignore::DeprecationWarning -m unittest -v
+
+    - name: Build jsecurity_persistence-wheel
+      run: |
+          cd jsecurity-persistence
+          python -m build -w
+
+    - name: Upload persistence-wheel
+      uses: actions/upload-artifact@v4
+      with:
+          name: jsecurity_persistence
+          path: jsecurity-persistence/dist/*.whl
+
   build_jsecurity_service:
     needs: build_jsecurity_api
     runs-on: ubuntu-latest
