@@ -21,6 +21,10 @@ dependencies = [
     'typing_extensions>=4.9.0'
 ]
 
+[project.urls]
+Repository = 'https://github.com/Louuke/JSecurity.git'
+Issues = 'https://github.com/Louuke/JSecurity/issues'
+
 [tool.setuptools.package-data]
 '*' = ['*.json']
 

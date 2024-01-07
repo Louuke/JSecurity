@@ -22,6 +22,10 @@ dependencies = [
     'email-validator>=2.1.0.post1'
 ]
 
+[project.urls]
+Repository = 'https://github.com/Louuke/JSecurity.git'
+Issues = 'https://github.com/Louuke/JSecurity/issues'
+
 [tool.setuptools.package-data]
 '*' = ['*.json']
 
