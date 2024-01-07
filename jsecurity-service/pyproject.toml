@@ -1,3 +1,28 @@
 [build-system]
 requires = ['setuptools>=69.0.3']
 build-backend = 'setuptools.build_meta'
+
+[project]
+name = 'jsecurity_service'
+dynamic = ['version']
+readme = 'README.md'
+license = {text = 'Apache License 2.0'}
+authors = [
+    {name = 'Louke', email = 'git@jannsen.org'}
+]
+classifiers = [
+    'Programming Language :: Python :: 3',
+    'License :: OSI Approved :: Apache License 2.0',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python :: Implementation :: CPython',
+]
+dependencies = [
+    'fastapi>=0.108.0',
+    'typing_extensions>=4.9.0'
+]
+
+[tool.setuptools.package-data]
+'*' = ['*.json']
+
+[tool.setuptools.dynamic]
+version = {attr = 'jsecurity_service.__version__'}
