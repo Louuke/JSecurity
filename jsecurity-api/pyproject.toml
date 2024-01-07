@@ -1,3 +1,33 @@
 [build-system]
 requires = ['setuptools>=69.0.3']
 build-backend = 'setuptools.build_meta'
+
+[project]
+name = 'jsecurity_api'
+dynamic = ['version']
+readme = 'README.md'
+license = {text = 'Apache License 2.0'}
+authors = [
+    {name = 'Louke', email = 'git@jannsen.org'}
+]
+classifiers = [
+    'Programming Language :: Python :: 3',
+    'License :: OSI Approved :: Apache License 2.0',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python :: Implementation :: CPython',
+]
+dependencies = [
+    'pydantic>=2.5.3',
+    'pydantic_settings>=2.1.0',
+    'email-validator>=2.1.0.post1'
+]
+
+[project.urls]
+Repository = 'https://github.com/Louuke/JSecurity.git'
+Issues = 'https://github.com/Louuke/JSecurity/issues'
+
+[tool.setuptools.package-data]
+'*' = ['*.json']
+
+[tool.setuptools.dynamic]
+version = {attr = 'jsecurity_api.__version__'}
